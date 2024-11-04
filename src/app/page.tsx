@@ -13,10 +13,26 @@ export default function Home() {
   const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   const [offset, setOffset] = useState(0);
   const limit = 20;
-  
+
   useEffect(() => {
     fetchPokemons();
   }, [offset]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleScroll = () => {
+    if (
+      window.innerHeight + window.scrollY >=
+      document.body.offsetHeight - 500
+    ) {
+      setOffset((prevOffset) => prevOffset + limit);
+    }
+  };
 
   const fetchPokemons = async () => {
     try {
