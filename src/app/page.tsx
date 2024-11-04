@@ -46,7 +46,7 @@ export default function Home() {
   return (
     <div className="grid gap-4 p-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
       {pokemons.map((pokemon, index) => {
-        const pokemonId = pokemon.url.split("/").slice(-2, -1)[0]; // Extract ID from URL
+        const pokemonId = pokemon.url.split("/").slice(-2, -1)[0];
         return (
           <Link href={`/${pokemonId}`} key={index}>
             <div className="flex flex-col items-center p-4 border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow">

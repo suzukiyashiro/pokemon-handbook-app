@@ -13,12 +13,12 @@ interface PokemonDetail {
 }
 
 const PokemonDetailPage = () => {
-  const [pokemon, setPokemon] = useState<PokemonDetail | null>(null); // 単一のポケモンを保持するように修正
+  const [pokemon, setPokemon] = useState<PokemonDetail | null>(null); 
   const pathname = usePathname();
   const pokemonId = pathname.split("/")[1];
 
   useEffect(() => {
-    fetchPokemon(); // 関数名を fetchPokemon に修正
+    fetchPokemon();
   }, []);
 
   const fetchPokemon = async () => {
